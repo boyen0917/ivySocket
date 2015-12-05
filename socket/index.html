@@ -39,7 +39,7 @@
      var vdo =  '<video id="myvideo" src="https://goo.gl/gQalX0" controls></video>';
     socket.on('click', function(status){
       console.debug("status",status);
-      if(status){
+      if(status == "show"){
         $('#youtube').fadeIn(300,function(){
             
             setTimeout(function(){
@@ -51,7 +51,9 @@
 
             
         })
-      }else{
+      }else if(status == "play"){
+        $("video").get(0).play(); 
+      }else if(status == "close"){
         $('#youtube').fadeOut(300,function(){
             $(this).hide().html("");  
         })

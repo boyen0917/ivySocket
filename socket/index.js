@@ -20,7 +20,6 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
-	console.log("go");
   socket.on('click', function(status){
     io.emit('click', status);
   });

@@ -26,19 +26,23 @@
   $(function(){
     var socket = io();
       $('button.show').click(function(){
-        console.debug("show");
-        socket.emit('click', true);
+        socket.emit('click', "show");
+      });
+
+      $('button.play').click(function(){
+        socket.emit('click', "play");
       });
 
       $('button.close').click(function(){
-        console.debug("close");
-        socket.emit('click', false);
+        
+        socket.emit('click', "close");
       });
   })
       
   </script>
   
     <button class="show">open</button>
+    <button class="play">play</button>
     <button class="close">close</button>
   </body>
 </html>
