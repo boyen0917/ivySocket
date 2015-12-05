@@ -1,18 +1,33 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+
+var express = require('express'),
+    app = express(),
+    http = require('http').Server(app),
+    io = require('socket.io')(http),
+    path = require('path');
+
+var port = 8080;
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.get('/', function(req, res){
-  res.sendfile('index.html');
+	
+	var html = "index.html";
+	if(req.query.ctrl == "123"){
+		html = 'ctrl.html'
+	}
+  res.sendfile(html);
 });
 
 io.on('connection', function(socket){
-  console.log('a user connected');
-  socket.on('disconnect', function(){
-    console.log('user disconnected');
+	console.log("go");
+  socket.on('click', function(status){
+    io.emit('click', status);
   });
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+http.listen(port, function(){
+  console.log('listening on port: ' + port);
 });
+
+

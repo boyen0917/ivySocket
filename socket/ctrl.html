@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      button { 
+        display: block; 
+        margin: 100px auto; 
+        width: 200px; 
+        height: 80px; 
+        font-size: 25px;
+        color: white;
+        border: 1px solid #d2d2d2;
+        background: green;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+  $(function(){
+    var socket = io();
+      $('button.show').click(function(){
+        console.debug("show");
+        socket.emit('click', true);
+      });
+
+      $('button.close').click(function(){
+        console.debug("close");
+        socket.emit('click', false);
+      });
+  })
+      
+  </script>
+  
+    <button class="show">open</button>
+    <button class="close">close</button>
+  </body>
+</html>
