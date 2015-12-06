@@ -6,7 +6,7 @@
     <link href="main.css" rel="stylesheet">
   </head>
   <body>
-    <img src="bg.jpg">
+    <img class="bg" src="bg.jpg">
   <section id="main">
     
 霓霓：  <br/><br/>
@@ -25,11 +25,14 @@
 
 
   </section>
+
+    <video id="myvideo" src="video.mp4" controls></video>
+
     <section id="youtube">
-      
+      <img class="cake" src="hb.png">
           
     </section>
-  
+    
 
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
@@ -43,9 +46,9 @@
         $('#youtube').fadeIn(300,function(){
             
             setTimeout(function(){
-              var vdoDom = $(vdo);
-              $(this).html(vdoDom); 
-              $("video").get(0).play(); 
+              // var vdoDom = $(vdo);
+              // $(this).html(vdoDom); 
+              // $("video").get(0).play(); 
             }.bind(this),1000);
             
 
@@ -55,7 +58,7 @@
         $("video").get(0).play(); 
       }else if(status == "close"){
         $('#youtube').fadeOut(300,function(){
-            $(this).hide().html("");  
+            // $(this).hide().html("");  
         })
       }
       

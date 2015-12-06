@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 app.get('/', function(req, res){
-	
+	console.log("comming");
 	var html = "index.html";
 	if(req.query.ctrl == "123"){
 		html = 'ctrl.html'
