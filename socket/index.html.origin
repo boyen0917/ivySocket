@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IvyMyLove</title>
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body>
+    <img class="bg" src="bg.jpg">
+  <section id="main">
+    
+霓霓：  <br/><br/>
+我們在一起就要半年了耶<br/>
+回想起一開始的相遇<br/>
+到現在的每天黏踢踢<br/>
+總覺得很開心有你陪伴<br/>
+有一個人可以付出 可以為了他睡眠不足<br/>
+為了他東奔西跑<br/>
+很充實～也很幸福<br/>
+<br/>
+希望我們可以在一起很久很久<br/>
+度過好多好多個日子<br/>
+<br/>
+生日快樂～ love you<br/>
+
+
+  </section>
+
+    <video id="myvideo" src="video.mp4" controls></video>
+
+    <section id="youtube">
+      <img class="cake" src="hb.png">
+          
+    </section>
+    
+
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+
+     var socket = io();
+     var vdo =  '<video id="myvideo" src="https://goo.gl/gQalX0" controls></video>';
+    socket.on('click', function(status){
+      console.debug("status",status);
+      if(status == "show"){
+        $('#youtube').fadeIn(300,function(){
+            
+            setTimeout(function(){
+              // var vdoDom = $(vdo);
+              // $(this).html(vdoDom); 
+              // $("video").get(0).play(); 
+            }.bind(this),1000);
+            
+
+            
+        })
+      }else if(status == "play"){
+        $("video").get(0).play(); 
+      }else if(status == "close"){
+        $('#youtube').fadeOut(300,function(){
+            // $(this).hide().html("");  
+        })
+      }
+      
+    });
+
+
+    
+
+
+  </script>
+  </body>
+</html>
